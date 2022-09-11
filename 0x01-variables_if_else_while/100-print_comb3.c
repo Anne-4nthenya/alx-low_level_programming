@@ -1,30 +1,33 @@
 #include <stdio.h>
-
 /**
- * main - Prints combination of numbers
- *
- * Return: Always (Success)
+ * main - program that prints all possible different combinations of 2 digits
+ * Return: 0
  */
 int main(void)
 {
-	        int c, i;
+	int c = 0;
+	int f_d;
+	int l_d;
 
-	        for (c = '0'; c <= '9'; c++)
+	while (c <= 99)
 	{
-		                for (i = '0'; i <= '9'; i++)
+		f_d = (c / 10 + '0');
+		l_d = (c % 10 + '0');
+
+		if (f_d < l_d)
 		{
-			                        if (c < i)
+			putchar(f_d);
+			putchar(l_d);
+
+			if (c != 89)
 			{
-				                                putchar(c);
-				                                putchar(i);
-				                                if (c != '8' || (c == '8' && i != '9'))
-				{
-					                                        putchar(',');
-					                                        putchar(' ');
-				}
+				putchar(',');
+				putchar('
+						');
 			}
 		}
+		c++;
 	}
-	        putchar('\n');
-	        return (0);
+	putchar('\n');
+	return (0);
 }
